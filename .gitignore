@@ -1,0 +1,7 @@
+secrets.tf
+.terraform/
+terraform.tfstate*
+keys/
+*.out
+*.lic
+env.sh
