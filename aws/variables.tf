@@ -5,12 +5,42 @@ variable "vpc-cidr" {
   default = "192.168.0.0/16"
 }
 
-variable "network-vlab-management-subnet-address" {
+variable "network-vlab-management-subnet-range" {
   type = "string"
-  default = "192.168.0.0"
+  default = "192.168.0.0/24"
 }
 
-variable "network-vlab-management-subnet-length" {
+variable "network-vlab-fabric-subnet-range" {
   type = "string"
-  default = "24"
+  default = "192.168.100.0/24"
+}
+
+variable "spines" {
+  type = "string"
+  default = "2"
+}
+
+variable "leafs" {
+  type = "string"
+  default = "4"
+}
+
+variable "fabric-links-count" {
+  type = "string"
+  default = "8"
+}
+
+variable "spine-ami" {
+  type = "string"
+  default = "ami-030dbca661d402413"
+}
+
+variable "spine-instance-type" {
+  type = "string"
+  default = "t2.micro"
+}
+
+variable "key-name" {
+  type = "string"
+  default = "vlab"
 }

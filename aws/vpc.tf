@@ -20,7 +20,7 @@ resource "aws_internet_gateway" "network-vlab-igw" {
 resource "aws_subnet" "network-vlab-management-subnets" {
   count = "${length(data.aws_availability_zones.available.names)}"
   vpc_id = "${aws_vpc.network-vlab-vpc.id}"
-  cidr_block = "${replace(var.network-vlab-management-subnet-address,"/([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3})/","$1.$2.${count.index}.$4")}/${var.network-vlab-management-subnet-length}"
+  cidr_block = "${cidrsubnet(var.network-vlab-management-subnet-range,2,count.index)}"
   availability_zone = "${element(data.aws_availability_zones.available.names, count.index%length(data.aws_availability_zones.available.names))}"
 
   tags {
