@@ -32,12 +32,17 @@ variable "fabric-links-count" {
 
 variable "spine-ami" {
   type = "string"
-  default = "ami-030dbca661d402413"
+  default = "ami-0ba764a137b984da9"
+}
+
+variable "leaf-ami" {
+  type = "string"
+  default = "ami-0ba764a137b984da9"
 }
 
 variable "spine-instance-type" {
   type = "string"
-  default = "t2.micro"
+  default = "c5.xlarge"
 }
 
 variable "key-name" {
